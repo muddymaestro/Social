@@ -18,7 +18,6 @@
               <h3>What other people say..</h3>
               @foreach($posts as $post)
                 <article class="post" data-postId={{$post->id}}>
-                  <input type="hidden" id="route" value="{{route('posts.update')}}">
                   <p>{{$post->body}}</p>
                   <div class="info">
                     posted by {{$post->user->name}} on {{$post->created_at}}
