@@ -67,7 +67,7 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function updatePost(Request $request)
     {
         $request->validate(['body' => 'required']);
         $post = Post::find($request['postId']);

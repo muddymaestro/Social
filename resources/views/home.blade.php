@@ -64,7 +64,7 @@
 
 <script>
   var token = '{{Session::token()}}';
-  var url = '{{route('posts.update')}}';
+  var url = '{{route('update')}}';
 </script>
 
 @endsection
