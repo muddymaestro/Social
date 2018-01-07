@@ -17,8 +17,9 @@
             <div class="col-md-6 col-md-offset-3">
               <h3>What other people say..</h3>
               @foreach($posts as $post)
-                <article class="post" data-postId={{$post->id}}>
+                <article class="post">
                   <p>{{$post->body}}</p>
+                  <input type="hidden" id="post_id" value="{{$post->id}}">
                   <div class="info">
                     posted by {{$post->user->name}} on {{$post->created_at}}
                   </div>
@@ -43,6 +44,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
        <form>
+         {{ csrf_field()}}
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	        <h4 class="modal-title" id="myModalLabel">Edit Post</h4>
@@ -53,6 +55,7 @@
 		       <textarea name="body" id="body" class="form-control" rows="5"></textarea>
 		     </div>
         </div>
+        <input type="hidden" id="postid">
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	        <button type="submit" class="btn btn-primary" id="modal-save">Save changes</button>
@@ -61,10 +64,5 @@
     </div>
   </div>
 </div>
-
-<script>
-  var token = '{{Session::token()}}';
-  var url = '{{route('update')}}';
-</script>
 
 @endsection

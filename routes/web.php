@@ -18,6 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
-Route::post('/posts', 'PostController@updatePost')->name('update');
+Route::post('/update', 'PostController@updatePost')->name('update');
 
 Route::resource('posts', 'PostController', ['except' => ['create', 'update']]);
